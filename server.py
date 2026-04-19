@@ -4,6 +4,7 @@ Tiny server for LALR(1) Parser GUI
 Run: python3 server.py
 Then open: http://localhost:8765
 """
+import os
 import subprocess, json, os, sys
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
@@ -75,8 +76,7 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
 if __name__ == "__main__":
-    port = 8765
-    server = HTTPServer(("localhost", port), Handler)
+    port = int(os.environ.get("PORT", 8765))    server = HTTPServer(("0.0.0.0", port), Handler)
     print(f"LALR(1) Parser GUI running at http://localhost:{port}")
     print("Press Ctrl+C to stop.")
     try:
