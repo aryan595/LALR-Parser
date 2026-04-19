@@ -76,7 +76,8 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8765))    server = HTTPServer(("0.0.0.0", port), Handler)
+    port = int(os.environ.get("PORT", 8765)) 
+    server = HTTPServer(("0.0.0.0", port), Handler)
     print(f"LALR(1) Parser GUI running at http://localhost:{port}")
     print("Press Ctrl+C to stop.")
     try:
